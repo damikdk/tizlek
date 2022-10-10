@@ -10,7 +10,7 @@
 		1301B0C028F18D8700487C80 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1301B0BF28F18D8700487C80 /* CircleView.swift */; };
 		1301B0C328F1919700487C80 /* Figures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1301B0C228F1919700487C80 /* Figures.swift */; };
 		1378696F28D5355E003F15C7 /* tizlekApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378696E28D5355E003F15C7 /* tizlekApp.swift */; };
-		1378697128D5355E003F15C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378697028D5355E003F15C7 /* ContentView.swift */; };
+		1378697128D5355E003F15C7 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378697028D5355E003F15C7 /* GameView.swift */; };
 		1378697328D5355F003F15C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1378697228D5355F003F15C7 /* Assets.xcassets */; };
 		1378697728D5355F003F15C7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1378697628D5355F003F15C7 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -20,7 +20,7 @@
 		1301B0C228F1919700487C80 /* Figures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figures.swift; sourceTree = "<group>"; };
 		1378696B28D5355E003F15C7 /* tizlek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tizlek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1378696E28D5355E003F15C7 /* tizlekApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tizlekApp.swift; sourceTree = "<group>"; };
-		1378697028D5355E003F15C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		1378697028D5355E003F15C7 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		1378697228D5355F003F15C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1378697428D5355F003F15C7 /* tizlek.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tizlek.entitlements; sourceTree = "<group>"; };
 		1378697628D5355F003F15C7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -66,7 +66,7 @@
 			children = (
 				1301B0C128F1918500487C80 /* Figures */,
 				1378696E28D5355E003F15C7 /* tizlekApp.swift */,
-				1378697028D5355E003F15C7 /* ContentView.swift */,
+				1378697028D5355E003F15C7 /* GameView.swift */,
 				1301B0BF28F18D8700487C80 /* CircleView.swift */,
 				1378697228D5355F003F15C7 /* Assets.xcassets */,
 				1378697428D5355F003F15C7 /* tizlek.entitlements */,
@@ -155,7 +155,7 @@
 			files = (
 				1301B0C028F18D8700487C80 /* CircleView.swift in Sources */,
 				1301B0C328F1919700487C80 /* Figures.swift in Sources */,
-				1378697128D5355E003F15C7 /* ContentView.swift in Sources */,
+				1378697128D5355E003F15C7 /* GameView.swift in Sources */,
 				1378696F28D5355E003F15C7 /* tizlekApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

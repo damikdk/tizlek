@@ -26,5 +26,5 @@ struct OsuCircle: Figure {
   var x: Double = .random(in: 0...500)
   var y: Double = .random(in: 0...500)
   
-  var diameter: Double = .random(in: 35...50)
+  var diameter: Double = .random(in: 80...100)
 }

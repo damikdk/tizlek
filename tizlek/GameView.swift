@@ -11,17 +11,25 @@ struct Composition {
   let figures: [some Figure] = [
     OsuCircle(startTime: 1, duration: 2),
     OsuCircle(startTime: 2, duration: 0.5),
-    OsuCircle(startTime: 3, duration: 2),
-    OsuCircle(startTime: 5, duration: 2),
+    OsuCircle(startTime: 3, duration: 3),
+    OsuCircle(startTime: 4, duration: 3),
+    OsuCircle(startTime: 5, duration: 3),
+    OsuCircle(startTime: 5, duration: 1),
+    OsuCircle(startTime: 6, duration: 2),
+    OsuCircle(startTime: 7, duration: 2),
     OsuCircle(startTime: 9, duration: 5),
     OsuCircle(startTime: 10, duration: 30),
   ]
 }
 
-struct ContentView: View {
+struct GameView: View {
   @State var composition = Composition()
+  
   @State var startTime: Date = Date()
   @State var currentTime: Date = Date()
+  
+  @State var score: Int = 0
+  let award: Int = 10
   
   let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
   
@@ -41,12 +49,24 @@ struct ContentView: View {
     }
     
     ZStack {
-      Text("\(currentDuration.rounded())")
       
+      // Figures itself
       ForEach(neededFigures, id: \.id) { figure in
-        
-        CircleView(figure: figure as! OsuCircle)
+        CircleView(figure: figure as! OsuCircle) { progress in
+          score = score + Int(Double(award) * progress)
+        }
       }
+      
+      // UI overlay
+      VStack {
+        Text("Score \(score)")
+          .font(.title2)
+
+        Text("\(currentDuration.formatted(.number.precision(.fractionLength(1))))")
+        
+        Spacer()
+      }
+
     }
     .onReceive(timer) { _ in
       self.currentTime = Date()

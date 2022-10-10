@@ -11,7 +11,8 @@ import SwiftUI
 struct tizlekApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GameView()
+              .frame(minWidth: 500, maxWidth: .infinity, minHeight: 700, maxHeight: .infinity)
         }
     }
 }

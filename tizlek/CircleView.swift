@@ -9,15 +9,36 @@ import SwiftUI
 
 struct CircleView: View {
   var figure: OsuCircle
-  @State var progress: Double = 0
+  var onTap: (Double) -> ()
   
+  // TODO: This should be not just 0 or 1, but interpolated value.
+  // But I don't know how to get current value of animated variable
+  @State var progress: Double = 0
+  @State var isTapped: Bool = false
+  
+  let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+
     var body: some View {
       Circle()
         .frame(width: figure.diameter, height: figure.diameter)
-        .scaleEffect(1 - progress)
-        .opacity(1 - progress)
-        .position(x: figure.x, y: figure.y)
+        .foregroundColor(isTapped ? .white : .black)
+        .clipped()
       
+        .scaleEffect(1 - progress)
+        .position(x: figure.x, y: figure.y)
+        
+        .opacity(isTapped ? 0 : 1)
+        .disabled(isTapped)
+
+        .onTapGesture {
+          onTap(progress)
+          
+          withAnimation(.linear(duration: 0.15)) {
+            isTapped = true
+            progress = 1
+          }
+        }
+            
         .onAppear {
           let baseAnimation = Animation.linear(duration: figure.duration)
 
@@ -25,5 +46,6 @@ struct CircleView: View {
             progress = 1
           }
         }
+            
     }
 }

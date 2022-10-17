@@ -19,11 +19,17 @@ struct CircleView: View {
   let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
 
     var body: some View {
-      Circle()
-        .frame(width: figure.diameter, height: figure.diameter)
-        .foregroundColor(isTapped ? .white : .black)
-        .clipped()
       
+      ZStack {
+          Circle()
+            .fill(.ultraThinMaterial)
+        
+          Circle()
+          .strokeBorder(figure.color, lineWidth: isTapped ? figure.diameter / 3 : 15)
+      }
+        .frame(width: figure.diameter, height: figure.diameter)
+        .clipped()
+
         .scaleEffect(1 - progress)
         .position(x: figure.x, y: figure.y)
         
@@ -33,7 +39,7 @@ struct CircleView: View {
         .onTapGesture {
           onTap(progress)
           
-          withAnimation(.linear(duration: 0.15)) {
+          withAnimation(.linear(duration: 0.1)) {
             isTapped = true
             progress = 1
           }

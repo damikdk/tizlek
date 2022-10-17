@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1301B0C028F18D8700487C80 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1301B0BF28F18D8700487C80 /* CircleView.swift */; };
 		1301B0C328F1919700487C80 /* Figures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1301B0C228F1919700487C80 /* Figures.swift */; };
+		1301B0C528FDEAEC00487C80 /* Composition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1301B0C428FDEAEC00487C80 /* Composition.swift */; };
+		1301B0E228FDF52500487C80 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1301B0E128FDF52400487C80 /* README.md */; };
 		1378696F28D5355E003F15C7 /* tizlekApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378696E28D5355E003F15C7 /* tizlekApp.swift */; };
 		1378697128D5355E003F15C7 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378697028D5355E003F15C7 /* GameView.swift */; };
 		1378697328D5355F003F15C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1378697228D5355F003F15C7 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* Begin PBXFileReference section */
 		1301B0BF28F18D8700487C80 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		1301B0C228F1919700487C80 /* Figures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figures.swift; sourceTree = "<group>"; };
+		1301B0C428FDEAEC00487C80 /* Composition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composition.swift; sourceTree = "<group>"; };
+		1301B0E128FDF52400487C80 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1378696B28D5355E003F15C7 /* tizlek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tizlek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1378696E28D5355E003F15C7 /* tizlekApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tizlekApp.swift; sourceTree = "<group>"; };
 		1378697028D5355E003F15C7 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
@@ -37,18 +41,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1301B0C128F1918500487C80 /* Figures */ = {
-			isa = PBXGroup;
-			children = (
-				1301B0C228F1919700487C80 /* Figures.swift */,
-			);
-			path = Figures;
-			sourceTree = "<group>";
-		};
 		1378696228D5355E003F15C7 = {
 			isa = PBXGroup;
 			children = (
 				1378696D28D5355E003F15C7 /* tizlek */,
+				1301B0E128FDF52400487C80 /* README.md */,
 				1378696C28D5355E003F15C7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,10 +61,11 @@
 		1378696D28D5355E003F15C7 /* tizlek */ = {
 			isa = PBXGroup;
 			children = (
-				1301B0C128F1918500487C80 /* Figures */,
-				1378696E28D5355E003F15C7 /* tizlekApp.swift */,
 				1378697028D5355E003F15C7 /* GameView.swift */,
+				1301B0C228F1919700487C80 /* Figures.swift */,
+				1301B0C428FDEAEC00487C80 /* Composition.swift */,
 				1301B0BF28F18D8700487C80 /* CircleView.swift */,
+				1378696E28D5355E003F15C7 /* tizlekApp.swift */,
 				1378697228D5355F003F15C7 /* Assets.xcassets */,
 				1378697428D5355F003F15C7 /* tizlek.entitlements */,
 				1378697528D5355F003F15C7 /* Preview Content */,
@@ -141,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1301B0E228FDF52500487C80 /* README.md in Resources */,
 				1378697728D5355F003F15C7 /* Preview Assets.xcassets in Resources */,
 				1378697328D5355F003F15C7 /* Assets.xcassets in Resources */,
 			);
@@ -157,6 +156,7 @@
 				1301B0C328F1919700487C80 /* Figures.swift in Sources */,
 				1378697128D5355E003F15C7 /* GameView.swift in Sources */,
 				1378696F28D5355E003F15C7 /* tizlekApp.swift in Sources */,
+				1301B0C528FDEAEC00487C80 /* Composition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

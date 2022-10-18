@@ -8,7 +8,7 @@
 import Foundation
 
 struct Composition {
-  let figures: [some Figure] = defaultSlowComposition
+  let figures: [some Figure] = defaultComposition
 }
 
 let defaultComposition = [

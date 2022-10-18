@@ -14,7 +14,6 @@
 		1378696F28D5355E003F15C7 /* tizlekApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378696E28D5355E003F15C7 /* tizlekApp.swift */; };
 		1378697128D5355E003F15C7 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378697028D5355E003F15C7 /* GameView.swift */; };
 		1378697328D5355F003F15C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1378697228D5355F003F15C7 /* Assets.xcassets */; };
-		1378697728D5355F003F15C7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1378697628D5355F003F15C7 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		1378697028D5355E003F15C7 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		1378697228D5355F003F15C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1378697428D5355F003F15C7 /* tizlek.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tizlek.entitlements; sourceTree = "<group>"; };
-		1378697628D5355F003F15C7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,17 +66,8 @@
 				1378696E28D5355E003F15C7 /* tizlekApp.swift */,
 				1378697228D5355F003F15C7 /* Assets.xcassets */,
 				1378697428D5355F003F15C7 /* tizlek.entitlements */,
-				1378697528D5355F003F15C7 /* Preview Content */,
 			);
 			path = tizlek;
-			sourceTree = "<group>";
-		};
-		1378697528D5355F003F15C7 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				1378697628D5355F003F15C7 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +129,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1301B0E228FDF52500487C80 /* README.md in Resources */,
-				1378697728D5355F003F15C7 /* Preview Assets.xcassets in Resources */,
 				1378697328D5355F003F15C7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,7 +268,6 @@
 				CODE_SIGN_ENTITLEMENTS = tizlek/tizlek.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"tizlek/Preview Content\"";
 				DEVELOPMENT_TEAM = BZ82DRDZY8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -318,7 +305,6 @@
 				CODE_SIGN_ENTITLEMENTS = tizlek/tizlek.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"tizlek/Preview Content\"";
 				DEVELOPMENT_TEAM = BZ82DRDZY8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;

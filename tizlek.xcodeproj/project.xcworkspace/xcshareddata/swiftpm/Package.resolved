@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "waveform",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/AudioKit/Waveform.git",
+      "state" : {
+        "revision" : "5b96ddbe28006136a6a334eb7998c91c1da686d6",
+        "version" : "1.0.1"
+      }
+    }
+  ],
+  "version" : 2
+}

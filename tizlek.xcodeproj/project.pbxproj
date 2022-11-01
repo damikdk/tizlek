@@ -14,6 +14,11 @@
 		1378696F28D5355E003F15C7 /* tizlekApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378696E28D5355E003F15C7 /* tizlekApp.swift */; };
 		1378697128D5355E003F15C7 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378697028D5355E003F15C7 /* GameView.swift */; };
 		1378697328D5355F003F15C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1378697228D5355F003F15C7 /* Assets.xcassets */; };
+		139E4E6F29112AC700557290 /* Waveform in Frameworks */ = {isa = PBXBuildFile; productRef = 139E4E6E29112AC700557290 /* Waveform */; };
+		139E4E722911304700557290 /* Slander Suffer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 139E4E702911304700557290 /* Slander Suffer.mp3 */; };
+		139E4E732911304700557290 /* Sullivan King Take Flight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 139E4E712911304700557290 /* Sullivan King Take Flight.mp3 */; };
+		139E4E75291134FD00557290 /* MinimapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E4E74291134FD00557290 /* MinimapView.swift */; };
+		139E4E782911387400557290 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E4E772911387400557290 /* EditorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,10 @@
 		1378697028D5355E003F15C7 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		1378697228D5355F003F15C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1378697428D5355F003F15C7 /* tizlek.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tizlek.entitlements; sourceTree = "<group>"; };
+		139E4E702911304700557290 /* Slander Suffer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Slander Suffer.mp3"; sourceTree = "<group>"; };
+		139E4E712911304700557290 /* Sullivan King Take Flight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Sullivan King Take Flight.mp3"; sourceTree = "<group>"; };
+		139E4E74291134FD00557290 /* MinimapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinimapView.swift; sourceTree = "<group>"; };
+		139E4E772911387400557290 /* EditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				139E4E6F29112AC700557290 /* Waveform in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +54,8 @@
 			children = (
 				1378696D28D5355E003F15C7 /* tizlek */,
 				1301B0E128FDF52400487C80 /* README.md */,
+				139E4E702911304700557290 /* Slander Suffer.mp3 */,
+				139E4E712911304700557290 /* Sullivan King Take Flight.mp3 */,
 				1378696C28D5355E003F15C7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,15 +71,41 @@
 		1378696D28D5355E003F15C7 /* tizlek */ = {
 			isa = PBXGroup;
 			children = (
-				1378697028D5355E003F15C7 /* GameView.swift */,
-				1301B0C228F1919700487C80 /* Figures.swift */,
-				1301B0C428FDEAEC00487C80 /* Composition.swift */,
-				1301B0BF28F18D8700487C80 /* CircleView.swift */,
+				139E4E762911354C00557290 /* Editor */,
+				139E4E792911392000557290 /* Game */,
+				139E4E7A2911393C00557290 /* Entities */,
 				1378696E28D5355E003F15C7 /* tizlekApp.swift */,
 				1378697228D5355F003F15C7 /* Assets.xcassets */,
 				1378697428D5355F003F15C7 /* tizlek.entitlements */,
 			);
 			path = tizlek;
+			sourceTree = "<group>";
+		};
+		139E4E762911354C00557290 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				139E4E772911387400557290 /* EditorView.swift */,
+				139E4E74291134FD00557290 /* MinimapView.swift */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		139E4E792911392000557290 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				1378697028D5355E003F15C7 /* GameView.swift */,
+				1301B0BF28F18D8700487C80 /* CircleView.swift */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		139E4E7A2911393C00557290 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				1301B0C228F1919700487C80 /* Figures.swift */,
+				1301B0C428FDEAEC00487C80 /* Composition.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,6 +124,9 @@
 			dependencies = (
 			);
 			name = tizlek;
+			packageProductDependencies = (
+				139E4E6E29112AC700557290 /* Waveform */,
+			);
 			productName = tizlek;
 			productReference = 1378696B28D5355E003F15C7 /* tizlek.app */;
 			productType = "com.apple.product-type.application";
@@ -114,6 +155,9 @@
 				Base,
 			);
 			mainGroup = 1378696228D5355E003F15C7;
+			packageReferences = (
+				139E4E6D29112AC700557290 /* XCRemoteSwiftPackageReference "Waveform" */,
+			);
 			productRefGroup = 1378696C28D5355E003F15C7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -129,7 +173,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1301B0E228FDF52500487C80 /* README.md in Resources */,
+				139E4E732911304700557290 /* Sullivan King Take Flight.mp3 in Resources */,
 				1378697328D5355F003F15C7 /* Assets.xcassets in Resources */,
+				139E4E722911304700557290 /* Slander Suffer.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +188,8 @@
 			files = (
 				1301B0C028F18D8700487C80 /* CircleView.swift in Sources */,
 				1301B0C328F1919700487C80 /* Figures.swift in Sources */,
+				139E4E75291134FD00557290 /* MinimapView.swift in Sources */,
+				139E4E782911387400557290 /* EditorView.swift in Sources */,
 				1378697128D5355E003F15C7 /* GameView.swift in Sources */,
 				1378696F28D5355E003F15C7 /* tizlekApp.swift in Sources */,
 				1301B0C528FDEAEC00487C80 /* Composition.swift in Sources */,
@@ -356,6 +404,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		139E4E6D29112AC700557290 /* XCRemoteSwiftPackageReference "Waveform" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/Waveform.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		139E4E6E29112AC700557290 /* Waveform */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 139E4E6D29112AC700557290 /* XCRemoteSwiftPackageReference "Waveform" */;
+			productName = Waveform;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1378696328D5355E003F15C7 /* Project object */;
 }

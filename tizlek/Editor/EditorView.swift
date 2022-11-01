@@ -131,6 +131,7 @@ struct EditorView: View {
     formatter.unitsStyle = .positional
     formatter.zeroFormattingBehavior = [ .pad ]
     
+#if os(iOS)
     do {
       try AVAudioSession.sharedInstance().setCategory(.playback)
       try AVAudioSession.sharedInstance().setCategory(.playback, options: [.mixWithOthers])
@@ -138,6 +139,7 @@ struct EditorView: View {
     } catch {
       print(error)
     }
+#endif
     
     // init audioPlayer - I use force unwrapping here for brevity and because I know that it cannot fail since I just added the file to the app.
     self.audioPlayer = try! AVAudioPlayer(contentsOf: demoFileURL)

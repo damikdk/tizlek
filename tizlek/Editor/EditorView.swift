@@ -1,11 +1,13 @@
-// Copyright AudioKit. All Rights Reserved. Revision History at http://github.com/AudioKit/Waveform/
-
 import AVFoundation
 import AVKit
 import SwiftUI
 import Waveform
 
-let demoFileURL = Bundle.main.url(forResource: "Sullivan King Take Flight", withExtension: "mp3")!
+
+// Code from https://laurentbrusa.hashnode.dev/creating-an-accessible-audio-player-in-swiftui-part-1
+
+let demoFileURL = Bundle.main.url(forResource: "Slander Suffer", withExtension: "mp3")!
+let REWIND_TIME = 5.0
 
 class WaveformModel: ObservableObject {
     var samples: SampleBuffer
@@ -16,12 +18,8 @@ class WaveformModel: ObservableObject {
     }
 }
 
-func getFile() -> AVAudioFile {
-    return try! AVAudioFile(forReading: demoFileURL)
-}
-
 struct EditorView: View {
-    @StateObject var model = WaveformModel(file: getFile())
+    @StateObject var model = WaveformModel(file: try! AVAudioFile(forReading: demoFileURL))
 
     @State var start = 0.0
     @State var length = 1.0
@@ -35,15 +33,8 @@ struct EditorView: View {
 
     var body: some View {
         VStack {
-            ZStack(alignment: .leading) {
-                Waveform(samples: model.samples)
-                  .foregroundColor(.cyan)
-                  .padding(.vertical, 5)
-              
-                MinimapView(start: $start, length: $length)
-            }
-            .frame(height: 100)
-            .padding(.horizontal, 20)
+          
+          // Waveform
           
           ZStack(alignment: .leading) {
             Waveform(samples: model.samples,
@@ -53,29 +44,54 @@ struct EditorView: View {
             
             // Current time line
             
-            Rectangle()
-              .fill(.red)
-              .frame(width: 1)
-              .offset(x: 20)
+            GeometryReader { geometry in
+
+              if (start ... start + length).contains(progress) {
+                let scaledProgress = 
+                
+                Rectangle()
+                  .fill(.red)
+                  .frame(width: 1)
+                  .offset(x: geometry.size.width * progress)
+              }
+              
+            }
+            
+            VStack {
+              Text("Start raw: \(String(start))")
+              Text("Length raw: \(String(length))")
+            }
+
           }
+          
+          // Minimap
+          
+          ZStack(alignment: .leading) {
+            Waveform(samples: model.samples)
+              .foregroundColor(.cyan)
+              .padding(.vertical, 5)
+            
+            MinimapView(start: $start, length: $length)
+          }
+          .frame(height: 100)
+          .padding(.horizontal, 20)
+          
+          
+          // Panel with buttons
           
           HStack {
             Text(formattedProgress)
               .font(.title3.monospacedDigit())
             
             Button {
-              print("Back 5 seconds")
-              let rewindTime = 5.0
               
-              if audioPlayer.currentTime - rewindTime < 0.0 {
+              if audioPlayer.currentTime - REWIND_TIME < 0.0 {
                 audioPlayer.currentTime = 0.0
               } else {
-                audioPlayer.currentTime -= rewindTime
+                audioPlayer.currentTime -= REWIND_TIME
               }
             } label: {
               Image(systemName: "gobackward.5")
-                .resizable()
-                .scaledToFit()
             }
             
             Button {
@@ -88,25 +104,16 @@ struct EditorView: View {
               }
             } label: {
               Image(systemName: playing ? "pause.fill" : "play.fill")
-                .resizable()
-                .scaledToFit()
             }
             
             Button {
-              print("Forward 5 seconds")
-              
-              let rewindTime = 5.0
-              
-              if audioPlayer.currentTime + rewindTime >= audioPlayer.duration {
+              if audioPlayer.currentTime + REWIND_TIME >= audioPlayer.duration {
                 audioPlayer.currentTime = audioPlayer.duration
               } else {
-                audioPlayer.currentTime += rewindTime
+                audioPlayer.currentTime += REWIND_TIME
               }
-
             } label: {
               Image(systemName: "goforward.5")
-                .resizable()
-                .scaledToFit()
             }
             
             Text(formattedDuration)
@@ -148,13 +155,16 @@ struct EditorView: View {
     formattedDuration = formatter.string(from: TimeInterval(self.audioPlayer.duration))!
     duration = self.audioPlayer.duration
     
-    Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { _ in
+    Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
       if !audioPlayer.isPlaying {
         playing = false
       }
       
-      progress = CGFloat(audioPlayer.currentTime / audioPlayer.duration)
       formattedProgress = formatter.string(from: TimeInterval(self.audioPlayer.currentTime))!
+      
+      withAnimation {
+        progress = CGFloat(audioPlayer.currentTime / audioPlayer.duration)
+      }
     }
 
   }

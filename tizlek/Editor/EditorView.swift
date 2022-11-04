@@ -47,21 +47,17 @@ struct EditorView: View {
             GeometryReader { geometry in
 
               if (start ... start + length).contains(progress) {
-                let scaledProgress = 
+                
+                let scaledProgress = (progress - start) / length
                 
                 Rectangle()
                   .fill(.red)
                   .frame(width: 1)
-                  .offset(x: geometry.size.width * progress)
+                  .offset(x: geometry.size.width * scaledProgress)
               }
               
             }
             
-            VStack {
-              Text("Start raw: \(String(start))")
-              Text("Length raw: \(String(length))")
-            }
-
           }
           
           // Minimap
@@ -72,6 +68,14 @@ struct EditorView: View {
               .padding(.vertical, 5)
             
             MinimapView(start: $start, length: $length)
+            
+            // Current time line
+            GeometryReader { geometry in
+                Rectangle()
+                  .fill(.red)
+                  .frame(width: 1)
+                  .offset(x: geometry.size.width * progress)
+            }
           }
           .frame(height: 100)
           .padding(.horizontal, 20)

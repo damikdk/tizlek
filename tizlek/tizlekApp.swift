@@ -9,10 +9,14 @@ import SwiftUI
 
 @main
 struct tizlekApp: App {
+  let defaultCompositions = [
+    Composition(figures: defaultComposition),
+    Composition(figures: defaultSlowComposition)
+  ]
+  
     var body: some Scene {
         WindowGroup {
-          EditorView()
-              .frame(minWidth: 300, maxWidth: .infinity, minHeight: 700, maxHeight: .infinity)
+          MenuScreen(compositions: defaultCompositions)
         }
     }
 }

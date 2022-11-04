@@ -3,7 +3,6 @@ import AVKit
 import SwiftUI
 import Waveform
 
-
 // Code from https://laurentbrusa.hashnode.dev/creating-an-accessible-audio-player-in-swiftui-part-1
 
 let demoFileURL = Bundle.main.url(forResource: "Slander Suffer", withExtension: "mp3")!
@@ -19,124 +18,117 @@ class WaveformModel: ObservableObject {
 }
 
 struct EditorView: View {
-    @StateObject var model = WaveformModel(file: try! AVAudioFile(forReading: demoFileURL))
+  @StateObject var model = WaveformModel(file: try! AVAudioFile(forReading: demoFileURL))
 
-    @State var start = 0.0
-    @State var length = 1.0
-  
+  @State var start = 0.0
+  @State var length = 1.0
+
   @State var audioPlayer: AVAudioPlayer!
   @State var progress: CGFloat = 0.0
-  @State private var playing: Bool = false
   @State var duration: Double = 0.0
+  @State private var playing: Bool = false
+  
   @State var formattedDuration: String = "00:00"
   @State var formattedProgress: String = "00:00"
 
-    var body: some View {
-        VStack {
-          
-          // Waveform
-          
-          ZStack(alignment: .leading) {
-            Waveform(samples: model.samples,
-                     start: Int(start * Double(model.samples.count - 1)),
-                     length: Int(length * Double(model.samples.count)))
-            .foregroundColor(.accentColor)
-            
-            // Current time line
-            
-            GeometryReader { geometry in
-
-              if (start ... start + length).contains(progress) {
-                
-                let scaledProgress = (progress - start) / length
-                
-                Rectangle()
-                  .fill(.red)
-                  .frame(width: 1)
-                  .offset(x: geometry.size.width * scaledProgress)
-              }
-              
-            }
-            
-          }
-          
-          // Minimap
-          
-          ZStack(alignment: .leading) {
-            Waveform(samples: model.samples)
-              .foregroundColor(.cyan)
-              .padding(.vertical, 5)
-            
-            MinimapView(start: $start, length: $length)
-            
-            // Current time line
-            GeometryReader { geometry in
-                Rectangle()
-                  .fill(.red)
-                  .frame(width: 1)
-                  .offset(x: geometry.size.width * progress)
-            }
-          }
-          .frame(height: 100)
-          .padding(.horizontal, 20)
-          
-          
-          // Panel with buttons
-          
-          HStack {
-            Text(formattedProgress)
-              .font(.title3.monospacedDigit())
-            
-            Button {
-              
-              if audioPlayer.currentTime - REWIND_TIME < 0.0 {
-                audioPlayer.currentTime = 0.0
-              } else {
-                audioPlayer.currentTime -= REWIND_TIME
-              }
-            } label: {
-              Image(systemName: "gobackward.5")
-            }
-            
-            Button {
-              if audioPlayer.isPlaying {
-                playing = false
-                audioPlayer.pause()
-              } else if !audioPlayer.isPlaying {
-                playing = true
-                audioPlayer.play()
-              }
-            } label: {
-              Image(systemName: playing ? "pause.fill" : "play.fill")
-            }
-            
-            Button {
-              if audioPlayer.currentTime + REWIND_TIME >= audioPlayer.duration {
-                audioPlayer.currentTime = audioPlayer.duration
-              } else {
-                audioPlayer.currentTime += REWIND_TIME
-              }
-            } label: {
-              Image(systemName: "goforward.5")
-            }
-            
-            Text(formattedDuration)
-              .font(.title3.monospacedDigit())
-
-          }
-          .buttonStyle(.bordered)
-          .controlSize(.large)
-          .frame(height: 70)
-
-        }
+  var body: some View {
+    VStack {
       
-        .onAppear {
-          initialiseAudioPlayer()
+      // Waveform
+      
+      ZStack(alignment: .leading) {
+        Waveform(samples: model.samples,
+                 start: Int(start * Double(model.samples.count - 1)),
+                 length: Int(length * Double(model.samples.count)))
+        .foregroundColor(.accentColor)
+        
+        // Current time line
+        
+        GeometryReader { geometry in
+          
+          if (start ... start + length).contains(progress) {
+            let scaledProgress = (progress - start) / length
+            ProgressLine(progress: scaledProgress)
+          }
+          
         }
-
+        
+      }
+      .frame(minHeight: 100)
+      
+      Spacer()
+      
+      // Minimap
+      
+      ZStack(alignment: .leading) {
+        Waveform(samples: model.samples)
+          .foregroundColor(.cyan)
+          .padding(.vertical, 5)
+        
+        MinimapView(start: $start, length: $length)
+        
+        ProgressLine(progress: progress)
+      }
+      .frame(height: 100)
+      .padding(.horizontal, 20)
+      
+      
+      // Panel with buttons
+      
+      HStack {
+        Text(formattedProgress)
+          .font(.title3.monospacedDigit())
+        
+        Button {
+          
+          if audioPlayer.currentTime - REWIND_TIME < 0.0 {
+            audioPlayer.currentTime = 0.0
+          } else {
+            audioPlayer.currentTime -= REWIND_TIME
+          }
+        } label: {
+          Image(systemName: "gobackward.5")
+        }
+        
+        Button {
+          if audioPlayer.isPlaying {
+            playing = false
+            audioPlayer.pause()
+          } else if !audioPlayer.isPlaying {
+            playing = true
+            audioPlayer.play()
+          }
+        } label: {
+          Image(systemName: playing ? "pause.fill" : "play.fill")
+        }
+        
+        Button {
+          if audioPlayer.currentTime + REWIND_TIME >= audioPlayer.duration {
+            audioPlayer.currentTime = audioPlayer.duration
+          } else {
+            audioPlayer.currentTime += REWIND_TIME
+          }
+        } label: {
+          Image(systemName: "goforward.5")
+        }
+        
+        Text(formattedDuration)
+          .font(.title3.monospacedDigit())
+        
+      }
+      .buttonStyle(.bordered)
+      .controlSize(.large)
+      .frame(height: 70)
+      
     }
+    
+    .onAppear {
+      initialiseAudioPlayer()
+    }
+    
+  }
   
-  func initialiseAudioPlayer() {
+  private func initialiseAudioPlayer() {
     let formatter = DateComponentsFormatter()
     formatter.allowedUnits = [.minute, .second]
     formatter.unitsStyle = .positional
@@ -166,7 +158,7 @@ struct EditorView: View {
       
       formattedProgress = formatter.string(from: TimeInterval(self.audioPlayer.currentTime))!
       
-      withAnimation {
+      withAnimation(.linear(duration: 0.2)) {
         progress = CGFloat(audioPlayer.currentTime / audioPlayer.duration)
       }
     }

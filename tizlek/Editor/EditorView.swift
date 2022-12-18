@@ -1,24 +1,19 @@
 import AVFoundation
+import AudioKitUI
+import AudioKit
 import AVKit
 import SwiftUI
-import Waveform
 
 // Code from https://laurentbrusa.hashnode.dev/creating-an-accessible-audio-player-in-swiftui-part-1
 
-let demoFileURL = Bundle.main.url(forResource: "Slander Suffer", withExtension: "mp3")!
+let demoFileURL = Bundle.main.url(forResource: "toto-africa", withExtension: "mp3")!
+let demoMIDIURL = Bundle.main.url(forResource: "toto-africa", withExtension: "mid")
 let REWIND_TIME = 5.0
 
-class WaveformModel: ObservableObject {
-    var samples: SampleBuffer
-
-    init(file: AVAudioFile) {
-        let stereo = file.toFloatChannelData()!
-        samples = SampleBuffer(samples: stereo[0])
-    }
-}
-
 struct EditorView: View {
-  @StateObject var model = WaveformModel(file: try! AVAudioFile(forReading: demoFileURL))
+  
+  @StateObject var viewModel = MIDITrackViewModel()
+  @State var fileURL = demoMIDIURL
 
   @State var start = 0.0
   @State var length = 1.0
@@ -30,16 +25,36 @@ struct EditorView: View {
   
   @State var formattedDuration: String = "00:00"
   @State var formattedProgress: String = "00:00"
+  
 
   var body: some View {
     VStack {
       
+      // Huge lagging MIDI panel
+      // Sometimes it's not even rendered
+      GeometryReader { geometry in
+        ScrollView {
+          
+          ForEach(
+            MIDIFile(url: fileURL!).tracks.indices, id: \.self
+          ) { number in
+            
+            MIDITrackView(fileURL: $fileURL,
+                          trackNumber: number,
+                          trackWidth: geometry.size.width,
+                          trackHeight: 30.0)
+            .environmentObject(viewModel)
+            .foregroundColor(.red)
+            .background(.blue)
+          }
+        }
+      }
+      
+      
       // Waveform
       
       ZStack(alignment: .leading) {
-        Waveform(samples: model.samples,
-                 start: Int(start * Double(model.samples.count - 1)),
-                 length: Int(length * Double(model.samples.count)))
+        AudioFileWaveform(url: demoFileURL)
         .foregroundColor(.accentColor)
         
         // Current time line
@@ -54,14 +69,14 @@ struct EditorView: View {
         }
         
       }
-      .frame(minHeight: 100)
+      .frame(minHeight: 70, maxHeight: 200)
       
       Spacer()
       
       // Minimap
       
       ZStack(alignment: .leading) {
-        Waveform(samples: model.samples)
+        AudioFileWaveform(url: demoFileURL)
           .foregroundColor(.cyan)
           .padding(.vertical, 5)
         
@@ -86,6 +101,8 @@ struct EditorView: View {
           } else {
             audioPlayer.currentTime -= REWIND_TIME
           }
+          
+          viewModel.stop()
         } label: {
           Image(systemName: "gobackward.5")
         }
@@ -97,6 +114,7 @@ struct EditorView: View {
           } else if !audioPlayer.isPlaying {
             playing = true
             audioPlayer.play()
+            viewModel.play()
           }
         } label: {
           Image(systemName: playing ? "pause.fill" : "play.fill")
@@ -124,6 +142,15 @@ struct EditorView: View {
     
     .onAppear {
       initialiseAudioPlayer()
+      
+      viewModel.startEngine()
+      if let fileURL = demoMIDIURL {
+          viewModel.loadSequencerFile(fileURL: fileURL)
+      }
+    }
+    .onDisappear {
+        viewModel.stop()
+        viewModel.stopEngine()
     }
     
   }

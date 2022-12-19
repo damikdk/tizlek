@@ -18,6 +18,7 @@ struct MenuScreen: View {
       }
       .navigationDestination(for: Composition.self) { composition in
         GameView(composition: composition)
+          .navigationTitle(composition.name)
       }
 
     }

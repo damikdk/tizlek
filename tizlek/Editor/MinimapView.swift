@@ -2,7 +2,6 @@
 
 import AVFoundation
 import SwiftUI
-import Waveform
 
 struct MinimapView: View {
     @Binding var start: Double

@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct GameView: View {
-  @State var composition = Composition()
+  @State var composition: Composition
   
   @State var startTime: Date = Date()
   @State var currentTime: Date = Date()

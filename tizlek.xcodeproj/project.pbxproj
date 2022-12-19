@@ -26,6 +26,7 @@
 		13BF6FE5294F34210097808E /* Demo.mid in Resources */ = {isa = PBXBuildFile; fileRef = 13BF6FE4294F34210097808E /* Demo.mid */; };
 		13BF6FE8294F36CF0097808E /* the weeknd - reminder.mid in Resources */ = {isa = PBXBuildFile; fileRef = 13BF6FE6294F36CF0097808E /* the weeknd - reminder.mid */; };
 		13BF6FE9294F36CF0097808E /* ed sheeran - shape of you.mid in Resources */ = {isa = PBXBuildFile; fileRef = 13BF6FE7294F36CF0097808E /* ed sheeran - shape of you.mid */; };
+		13CE97F3292CCE80009B95CE /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CE97F2292CCE80009B95CE /* MenuScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		13BF6FE4294F34210097808E /* Demo.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = Demo.mid; sourceTree = "<group>"; };
 		13BF6FE6294F36CF0097808E /* the weeknd - reminder.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "the weeknd - reminder.mid"; sourceTree = "<group>"; };
 		13BF6FE7294F36CF0097808E /* ed sheeran - shape of you.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "ed sheeran - shape of you.mid"; sourceTree = "<group>"; };
+		13CE97F2292CCE80009B95CE /* MenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				139E4E792911392000557290 /* Game */,
 				139E4E7A2911393C00557290 /* Entities */,
 				1378696E28D5355E003F15C7 /* tizlekApp.swift */,
+				13CE97F2292CCE80009B95CE /* MenuScreen.swift */,
 				1378697228D5355F003F15C7 /* Assets.xcassets */,
 				1378697428D5355F003F15C7 /* tizlek.entitlements */,
 			);
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13CE97F3292CCE80009B95CE /* MenuScreen.swift in Sources */,
 				1301B0C028F18D8700487C80 /* CircleView.swift in Sources */,
 				1301B0C328F1919700487C80 /* Figures.swift in Sources */,
 				1342AA732915576A00123888 /* ProgressLine.swift in Sources */,
@@ -291,6 +295,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -343,6 +348,7 @@
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -374,7 +380,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.damirka.tizlek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -414,7 +420,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 12.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.damirka.tizlek;
 				PRODUCT_NAME = "$(TARGET_NAME)";

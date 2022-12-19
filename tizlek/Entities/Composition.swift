@@ -7,8 +7,15 @@
 
 import Foundation
 
-struct Composition {
-  let figures: [some Figure] = defaultComposition
+struct Composition: Identifiable, Hashable {
+  static func == (lhs: Composition, rhs: Composition) -> Bool {
+    return lhs.id == rhs.id
+  }
+  
+  let name: String = UUID().uuidString
+  let figures: [any Figure]
+  let duration: Double = defaultComposition.last!.startTime + defaultComposition.last!.duration
+  var id = UUID()
 }
 
 let defaultComposition = [

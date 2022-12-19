@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-protocol Figure: Hashable, Identifiable {
+protocol Figure: Hashable, Identifiable, Equatable {
   var id: UUID { get }
   var startTime: Double { get set }
   var duration: Double { get set }

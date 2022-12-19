@@ -14,13 +14,6 @@
 		1378696F28D5355E003F15C7 /* tizlekApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378696E28D5355E003F15C7 /* tizlekApp.swift */; };
 		1378697128D5355E003F15C7 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1378697028D5355E003F15C7 /* GameView.swift */; };
 		1378697328D5355F003F15C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1378697228D5355F003F15C7 /* Assets.xcassets */; };
-		139E4E722911304700557290 /* Slander Suffer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 139E4E702911304700557290 /* Slander Suffer.mp3 */; };
-		139E4E732911304700557290 /* Sullivan King Take Flight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 139E4E712911304700557290 /* Sullivan King Take Flight.mp3 */; };
-		13BF6FE1294E66570097808E /* toto-africa.mid in Resources */ = {isa = PBXBuildFile; fileRef = 13BF6FE0294E66570097808E /* toto-africa.mid */; };
-		13BF6FE3294E666C0097808E /* toto-africa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 13BF6FE2294E666C0097808E /* toto-africa.mp3 */; };
-		13BF6FE5294F34210097808E /* Demo.mid in Resources */ = {isa = PBXBuildFile; fileRef = 13BF6FE4294F34210097808E /* Demo.mid */; };
-		13BF6FE8294F36CF0097808E /* the weeknd - reminder.mid in Resources */ = {isa = PBXBuildFile; fileRef = 13BF6FE6294F36CF0097808E /* the weeknd - reminder.mid */; };
-		13BF6FE9294F36CF0097808E /* ed sheeran - shape of you.mid in Resources */ = {isa = PBXBuildFile; fileRef = 13BF6FE7294F36CF0097808E /* ed sheeran - shape of you.mid */; };
 		13CE97F3292CCE80009B95CE /* MenuScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CE97F2292CCE80009B95CE /* MenuScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,13 +27,6 @@
 		1378697028D5355E003F15C7 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		1378697228D5355F003F15C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1378697428D5355F003F15C7 /* tizlek.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = tizlek.entitlements; sourceTree = "<group>"; };
-		139E4E702911304700557290 /* Slander Suffer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Slander Suffer.mp3"; sourceTree = "<group>"; };
-		139E4E712911304700557290 /* Sullivan King Take Flight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Sullivan King Take Flight.mp3"; sourceTree = "<group>"; };
-		13BF6FE0294E66570097808E /* toto-africa.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; name = "toto-africa.mid"; path = "../../../Downloads/toto-africa.mid"; sourceTree = "<group>"; };
-		13BF6FE2294E666C0097808E /* toto-africa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "toto-africa.mp3"; sourceTree = "<group>"; };
-		13BF6FE4294F34210097808E /* Demo.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = Demo.mid; sourceTree = "<group>"; };
-		13BF6FE6294F36CF0097808E /* the weeknd - reminder.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "the weeknd - reminder.mid"; sourceTree = "<group>"; };
-		13BF6FE7294F36CF0097808E /* ed sheeran - shape of you.mid */ = {isa = PBXFileReference; lastKnownFileType = audio.midi; path = "ed sheeran - shape of you.mid"; sourceTree = "<group>"; };
 		13CE97F2292CCE80009B95CE /* MenuScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,7 +46,6 @@
 			children = (
 				1378696D28D5355E003F15C7 /* tizlek */,
 				1301B0E128FDF52400487C80 /* README.md */,
-				13E365882933A4AF00B82347 /* Files */,
 				1378696C28D5355E003F15C7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,20 +87,6 @@
 				1301B0C428FDEAEC00487C80 /* Composition.swift */,
 			);
 			path = Entities;
-			sourceTree = "<group>";
-		};
-		13E365882933A4AF00B82347 /* Files */ = {
-			isa = PBXGroup;
-			children = (
-				13BF6FE2294E666C0097808E /* toto-africa.mp3 */,
-				13BF6FE7294F36CF0097808E /* ed sheeran - shape of you.mid */,
-				13BF6FE6294F36CF0097808E /* the weeknd - reminder.mid */,
-				13BF6FE4294F34210097808E /* Demo.mid */,
-				13BF6FE0294E66570097808E /* toto-africa.mid */,
-				139E4E702911304700557290 /* Slander Suffer.mp3 */,
-				139E4E712911304700557290 /* Sullivan King Take Flight.mp3 */,
-			);
-			path = Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,14 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1301B0E228FDF52500487C80 /* README.md in Resources */,
-				139E4E732911304700557290 /* Sullivan King Take Flight.mp3 in Resources */,
 				1378697328D5355F003F15C7 /* Assets.xcassets in Resources */,
-				13BF6FE8294F36CF0097808E /* the weeknd - reminder.mid in Resources */,
-				13BF6FE5294F34210097808E /* Demo.mid in Resources */,
-				139E4E722911304700557290 /* Slander Suffer.mp3 in Resources */,
-				13BF6FE9294F36CF0097808E /* ed sheeran - shape of you.mid in Resources */,
-				13BF6FE3294E666C0097808E /* toto-africa.mp3 in Resources */,
-				13BF6FE1294E66570097808E /* toto-africa.mid in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

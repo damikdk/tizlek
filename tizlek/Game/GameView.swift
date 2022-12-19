@@ -22,7 +22,7 @@ struct GameView: View {
   var body: some View {
     let currentDuration = currentTime.timeIntervalSince(startTime)
     
-    let neededFigures: [any Figure] = composition.figures.compactMap { figure in
+    let neededFigures: [Figure] = composition.figures.compactMap { figure in
       let figureFinish = startTime
         .advanced(by: figure.startTime)
         .advanced(by: figure.duration)
@@ -34,30 +34,34 @@ struct GameView: View {
       return nil
     }
     
-    ZStack {
+    GeometryReader { geometry in
       
-      // Figures itself
-      ForEach(neededFigures, id: \.id) { figure in
-        CircleView(figure: figure as! OsuCircle) { progress in
-          
-        #if os(iOS)
-          UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        #endif
-          
-          score = score + Int(Double(award) * progress)
-        }
-      }
-      
-      // UI overlay
-      VStack {
-        Text("Score \(score)")
-          .font(.title2)
-
-        Text("\(currentDuration.formatted(.number.precision(.fractionLength(1))))")
+      ZStack {
         
-        Spacer()
+        // Figures itself
+        ForEach(neededFigures, id: \.id) { figure in
+          CircleView(figure: figure as! OsuCircle, screenSize: geometry.size) { progress in
+            
+#if os(iOS)
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+#endif
+            
+            score = score + Int(Double(award) * progress)
+          }
+        }
+        
+        // UI overlay
+        VStack {
+          Text("Score \(score)")
+            .font(.title2)
+          
+          Text("\(currentDuration.formatted(.number.precision(.fractionLength(1))))")
+          
+          Spacer()
+        }
+        
       }
-
+      
     }
     .onReceive(timer) { _ in
       self.currentTime = Date()

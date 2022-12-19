@@ -17,8 +17,6 @@ struct tizlekApp: App {
     var body: some Scene {
         WindowGroup {
           MenuScreen(compositions: defaultCompositions)
-//          EditorView()
-//              .frame(minWidth: 300, maxWidth: .infinity, minHeight: 700, maxHeight: .infinity)
         }
     }
 }

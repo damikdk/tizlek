@@ -7,26 +7,42 @@
 
 import SwiftUI
 
-protocol Figure: Hashable, Identifiable, Equatable {
-  var id: UUID { get }
-  var startTime: Double { get set }
-  var duration: Double { get set }
-  var color: Color { get set }
-  
-  var x: Double { get set }
-  var y: Double { get set }
-  
-  var diameter: Double { get set }
-}
-
-struct OsuCircle: Figure {
+class Figure: Hashable, Identifiable, Equatable {
   var id: UUID = UUID()
   var startTime: Double
-  var duration: Double = 1
-  var color: Color = .cyan
+  var duration: Double
+  var color: Color
+
+  var x: Double
+  var y: Double
   
-  var x: Double = .random(in: 50...300)
-  var y: Double = .random(in: 50...800)
+  init(
+    id: UUID = UUID() ,
+    startTime: Double!,
+    duration: Double = 1,
+    color: Color = .white,
+    x: Double = .random(in: 0...1),
+    y: Double = .random(in: 0...1)
+  ) {
+    self.id = id
+    self.startTime = startTime
+    self.duration = duration
+    self.color = color
+    self.x = x
+    self.y = y
+  }
+  
+  static func == (lhs: Figure, rhs: Figure) -> Bool {
+    return lhs.id == rhs.id
+  }
+  
+  public func hash(into hasher: inout Hasher) {
+      return hasher.combine(id)
+  }
+}
+
+class OsuCircle: Figure {
   
   var diameter: Double = .random(in: 90...200)
+
 }

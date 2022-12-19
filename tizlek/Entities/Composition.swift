@@ -13,7 +13,7 @@ struct Composition: Identifiable, Hashable {
   }
   
   let name: String = UUID().uuidString
-  let figures: [any Figure]
+  let figures: [Figure]
   let duration: Double = defaultComposition.last!.startTime + defaultComposition.last!.duration
   var id = UUID()
 }

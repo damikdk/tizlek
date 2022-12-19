@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CircleView: View {
   var figure: OsuCircle
+  var screenSize: CGSize
   var onTap: (Double) -> ()
   
   // TODO: This should be not just 0 or 1, but interpolated value.
@@ -31,7 +32,7 @@ struct CircleView: View {
         .clipped()
 
         .scaleEffect(1 - progress)
-        .position(x: figure.x, y: figure.y)
+        .position(x: figure.x * screenSize.width, y: figure.y * screenSize.height)
         
         .opacity(isTapped ? 0 : 1)
         .disabled(isTapped)

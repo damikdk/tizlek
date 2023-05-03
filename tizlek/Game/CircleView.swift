@@ -17,10 +17,9 @@ struct CircleView: View {
   @State var progress: Double = 0
   @State var isTapped: Bool = false
   
-  let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+//  let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
 
     var body: some View {
-      
       ZStack {
           Circle()
             .fill(.ultraThinMaterial)
@@ -37,7 +36,16 @@ struct CircleView: View {
         .opacity(isTapped ? 0 : 1)
         .disabled(isTapped)
 
-        .onTapGesture {
+//        .onTapGesture {
+//          onTap(progress)
+//
+//          withAnimation(.linear(duration: 0.1)) {
+//            isTapped = true
+//            progress = 1
+//          }
+//        }
+      
+        .onLongPressGesture(minimumDuration: 0) {
           onTap(progress)
           
           withAnimation(.linear(duration: 0.1)) {

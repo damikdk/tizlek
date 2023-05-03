@@ -2,7 +2,7 @@
 # Tizlek (WIP)
 [osu](osu.ppy.sh "osu")-like rhythm game on pure SwiftUI
 
-[TestFlight Beta](https://testflight.apple.com/join/sYnBrTZ7 "TestFlight Beta") (iOS 16+)
+[TestFlight Beta](https://testflight.apple.com/join/sYnBrTZ7 "TestFlight Beta") (iOS 16+, mac version is broken by Apple)
 
 ### Design
 - Pure `SwiftUI` at any cost. Zero `UIKit` imports
